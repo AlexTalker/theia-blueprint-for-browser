@@ -5,8 +5,9 @@ A spin-off of [eclipse-theia/theia-blueprint](https://github.com/eclipse-theia/t
 ## Repository
 
 This repo is inspired by issues:
-- https://github.com/eclipse-theia/theia-blueprint/issues/75
+
 - https://github.com/eclipse-theia/theia-blueprint/issues/74
+- https://github.com/eclipse-theia/theia-blueprint/issues/75
 
 The aim is to provide a template for a package for different Linux distributions that contains the Theia IDE itself and some helpful additions.
 Later on, this package might be utilized to build a Docker image that's ready for portable deployment in the target's user environment.
