@@ -1,0 +1,55 @@
+# Maintainer: Alex Talker <alextalker at ya.ru>
+
+pkgname=theia-blueprint-for-browser
+pkgver=1.25.0
+pkgrel=1
+arch=('any')
+url='https://www.theia-ide.org/'
+pkgdesc="Cloud IDE Platform blueprint"
+license=('EPL2')
+depends=('nodejs' 'nss')
+makedepends=('yarn' 'node-gyp' 'libsecret')
+optdepends=('git: git support' 'libsecret: keytar support')
+options=(!strip) #to speed up build
+
+source=(
+    "theia-blueprint-for-browser.sh"
+    "package.json"
+    "https://raw.githubusercontent.com/eclipse-theia/theia/v$pkgver/LICENSE"
+)
+md5sums=('SKIP'
+         'SKIP'
+         '84e52389f141be88a24bcfdd44c91a19')
+
+build() {
+    local FAKEHOME="$srcdir/.nodejs-gyp"
+    export YARN_CACHE_FOLDER="$srcdir/.yarn-cache"
+    mkdir -p "$FAKEHOME"
+
+    # See https://theia-ide.org/docs/composing_applications
+    HOME="$FAKEHOME" yarn
+    HOME="$FAKEHOME" yarn theia build
+    HOME="$FAKEHOME" yarn theia download:plugins
+
+    unset YARN_CACHE_FOLDER
+}
+
+package() {
+    # Create directory
+    install -dm 755 "$pkgdir"/opt/$pkgname
+
+    # Source code (symlinks are not dereferenced) and plugins
+    cp -r --no-preserve=ownership --preserve=mode \
+        src-gen lib node_modules \
+        plugins \
+        "$pkgdir/opt/$pkgname/"
+
+    # package.json
+    install -Dm755 package.json "$pkgdir/opt/$pkgname/"
+
+    # Executable
+    install -Dm755 theia-blueprint-for-browser.sh "$pkgdir/usr/bin/$pkgname"
+
+    # License
+    install -Dm 644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}
