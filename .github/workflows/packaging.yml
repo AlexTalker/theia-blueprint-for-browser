@@ -21,4 +21,5 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: theia-blueprint-for-browser-manjaro:latest
-          options: -v ${{ github.workspace }}:/data    
+          options: -v ${{ github.workspace }}:/data
+          run: /bin/bash /run.sh
