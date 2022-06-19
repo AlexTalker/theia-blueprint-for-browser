@@ -1,0 +1,25 @@
+name: Packaging
+on: [ workflow_dispatch ]
+
+jobs:
+  x64:
+    name: Build packages for x86_64 platform
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Build Docker image to build a package
+        uses: docker/build-push-action@v3
+        with:
+          context: manjaro/latest/docker
+          push: false
+          tags: theia-blueprint-for-browser-manjaro:latest
+      -
+        name: Running Docker image to build a package
+        uses: addnab/docker-run-action@v3
+        with:
+          image: test-image:latest
+          run: cat /etc/os-release
+    
