@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -x
+
 BUILDDIR="$(mktemp -d)"
 
 cd "${BUILDDIR}"
