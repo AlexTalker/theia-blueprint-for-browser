@@ -6,5 +6,7 @@ RUN pacman -Syu --noconfirm && \
 
 ADD run.sh .
 
+USER builder
+
 # TODO: Manjaro image has no entrypoint, tini is needed for it
 CMD [ "/bin/bash", "/run.sh" ]
