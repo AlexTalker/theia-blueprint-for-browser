@@ -39,6 +39,6 @@
     },
     "theiaPluginsDir": "plugins",
     "theiaPlugins": {
-        "vscode-builtin-extension-pack": "https://open-vsx.org/api/eclipse-theia/builtin-extension-pack/1.62.3/file/eclipse-theia.builtin-extension-pack-1.62.3.vsix"
+        "vscode-builtin-extension-pack": "https://open-vsx.org/api/eclipse-theia/builtin-extension-pack/1.50.1/file/eclipse-theia.builtin-extension-pack-1.50.1.vsix"
     }
 }
