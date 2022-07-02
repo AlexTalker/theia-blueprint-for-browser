@@ -15,7 +15,7 @@ options=(!strip) #to speed up build
 
 source=(
     "theia-blueprint-for-browser.sh"
-    "theia-blueprint-for-browser.service"
+    "theia-blueprint-for-browser@.service"
     "package.json"
     "https://raw.githubusercontent.com/eclipse-theia/theia/v$pkgver/LICENSE"
 )
@@ -51,12 +51,12 @@ package_theia-blueprint-for-browser() {
     install -Dm755 package.json "${pkgdir}/opt/${pkgbase}/"
 
     # Executable
-    install -Dm755 "${pkgbase}.sh "${pkgdir}/usr/bin/${pkgbase}"
+    install -Dm755 "${pkgbase}.sh" "${pkgdir}/usr/bin/${pkgbase}"
 
     # License
-    install -Dm 644 LICENSE "${pkgdir}"/usr/share/licenses/${pkgbase}/LICENSE
+    install -Dm 644 LICENSE "${pkgdir}/usr/share/licenses/${pkgbase}/LICENSE"
 }
 
 package_theia-blueprint-for-browser-extra() {
-    install -Dm 644 "${pkgbase}.service" "${pkgdir}/usr/lib/systemd/user/${pkgbase}.service"
+    install -Dm 644 "${pkgbase}@.service" "${pkgdir}/usr/lib/systemd/user/${pkgbase}.service"
 }
