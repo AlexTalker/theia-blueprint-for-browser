@@ -2,6 +2,9 @@
 
 ls -lah /data
 id
+mount
+
+sudo mkdir -p /data/output
 
 exit 1
 
