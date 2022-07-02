@@ -1,13 +1,5 @@
 #!/usr/bin/env sh
 
-ls -lah /data
-id
-mount
-
-sudo mkdir -p /data/output
-
-exit 1
-
 set -x
 
 BUILDDIR="$(mktemp -d)"
@@ -19,6 +11,6 @@ cp /data/manjaro/latest/PKGBUILD .
 
 makepkg --syncdeps --noconfirm
 
-mkdir -p /data/output
+sudo mkdir -p /data/output
 
-cp *.zst /data/output
+sudo cp *.zst /data/output
