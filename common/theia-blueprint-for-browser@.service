@@ -1,0 +1,12 @@
+[Unit]
+Description=Theia IDE Blueprint In-browser Basic Example
+
+[Service]
+Type=simple
+# %E = ~/.config/ (usually)
+EnvironmentFile=-%E/theia-blueprint-for-browser.env
+# Default project directory
+ExecStart=/usr/bin/theia-blueprint-for-browser "%I"
+
+[Install]
+WantedBy=default.target
