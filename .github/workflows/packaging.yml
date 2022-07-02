@@ -23,3 +23,10 @@ jobs:
           image: theia-blueprint-for-browser-manjaro:latest
           options: -v ${{ github.workspace }}:/data
           run: /bin/bash /run.sh
+      -
+        name: Collect artifacts...
+        uses: actions/upload-artifact@v3
+        with:
+          name: manjaro-linux
+          path: |
+            output/*.zst
