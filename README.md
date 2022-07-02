@@ -21,4 +21,5 @@ At the moment, packages are available for the following Linux distributions:
 ## FAQ
 
 Q: Why here and not in [AUR](https://aur.archlinux.org/)?
+
 A: Since Theia IDE from the beginning is more like a set of jigsaw pieces than monolithic product(like VS Code), it would be an overkill to have one large all-encompassing AUR package, so having a basic, ready-for-customisation Git repository is much more viable solution.
