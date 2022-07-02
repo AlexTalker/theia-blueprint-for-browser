@@ -60,7 +60,7 @@ package_theia-blueprint-for-browser() {
 package_theia-blueprint-for-browser-extra() {
     # Optional helpful files
     arch=('any')
-    pkgdesc=('Additional useful files for Cloud IDE Platform blueprint')
+    pkgdesc='Additional useful files for Cloud IDE Platform blueprint'
     depends_=("${pkgbase}")
     optdepends=('systemd: For systemd unit file')
 
