@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
+ls -lah /data
+id
+
+exit 1
+
 set -x
 
 BUILDDIR="$(mktemp -d)"
