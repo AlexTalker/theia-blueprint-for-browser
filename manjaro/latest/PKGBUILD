@@ -4,7 +4,7 @@ pkgname=('theia-blueprint-for-browser'
          'theia-blueprint-for-browser-extra')
 pkgver=1.25.0
 pkgrel=1
-arch=('any')
+arch=('x86_64')
 url='https://www.theia-ide.org/'
 pkgdesc="Cloud IDE Platform blueprint"
 license=('EPL2')
@@ -23,6 +23,12 @@ md5sums=('SKIP'
          'SKIP'
          'SKIP'
          '84e52389f141be88a24bcfdd44c91a19')
+
+# Optional helpful files
+arch_theia-blueprint-for-browser-extra=('any')
+pkgdesc_theia-blueprint-for-browser-extra=('Additional useful files for Cloud IDE Platform blueprint')
+depends_theia-blueprint-for-browser-extra=('theia-blueprint-for-browser')
+optdepends_theia-blueprint-for-browser-extra=('systemd: For systemd unit file')
 
 build() {
     local FAKEHOME="$srcdir/.nodejs-gyp"
@@ -58,5 +64,5 @@ package_theia-blueprint-for-browser() {
 }
 
 package_theia-blueprint-for-browser-extra() {
-    install -Dm 644 "${pkgbase}@.service" "${pkgdir}/usr/lib/systemd/user/${pkgbase}.service"
+    install -Dm 644 "${pkgbase}@.service" "${pkgdir}/usr/lib/systemd/user/${pkgbase}@.service"
 }
