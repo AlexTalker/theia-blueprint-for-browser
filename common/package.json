@@ -11,7 +11,7 @@
         }
     },
     "dependencies": {
-        "@theia/bulk-edit": "latest"
+        "@theia/bulk-edit": "latest",
         "@theia/callhierarchy": "latest",
         "@theia/console": "latest",
         "@theia/core": "latest",
