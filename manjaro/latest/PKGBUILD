@@ -58,11 +58,11 @@ package_theia-blueprint-for-browser() {
 }
 
 package_theia-blueprint-for-browser-extra() {
-     # Optional helpful files
-     arch=('any')
-     pkgdesc=('Additional useful files for Cloud IDE Platform blueprint')
-     depends_=("${pkgbase}")
-     optdepends=('systemd: For systemd unit file')
+    # Optional helpful files
+    arch=('any')
+    pkgdesc=('Additional useful files for Cloud IDE Platform blueprint')
+    depends_=("${pkgbase}")
+    optdepends=('systemd: For systemd unit file')
 
     install -Dm 644 "${pkgbase}@.service" "${pkgdir}/usr/lib/systemd/user/${pkgbase}@.service"
 }
