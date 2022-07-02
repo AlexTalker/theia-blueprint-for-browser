@@ -4,9 +4,10 @@ Description=Theia IDE Blueprint In-browser Basic Example
 [Service]
 Type=simple
 # %E = ~/.config/ (usually)
+Environment=THEIA_HOSTNAME=127.0.0.1
 EnvironmentFile=-%E/theia-blueprint-for-browser.env
 # Default project directory
-ExecStart=/usr/bin/theia-blueprint-for-browser ${THEIA_OPTS} "%I"
+ExecStart=/usr/bin/theia-blueprint-for-browser --hostname ${THEIA_HOSTNAME} "/%I"
 
 [Install]
 WantedBy=default.target
