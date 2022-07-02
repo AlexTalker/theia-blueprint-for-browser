@@ -24,12 +24,6 @@ md5sums=('SKIP'
          'SKIP'
          '84e52389f141be88a24bcfdd44c91a19')
 
-# Optional helpful files
-arch_theia-blueprint-for-browser-extra=('any')
-pkgdesc_theia-blueprint-for-browser-extra=('Additional useful files for Cloud IDE Platform blueprint')
-depends_theia-blueprint-for-browser-extra=('theia-blueprint-for-browser')
-optdepends_theia-blueprint-for-browser-extra=('systemd: For systemd unit file')
-
 build() {
     local FAKEHOME="$srcdir/.nodejs-gyp"
     export YARN_CACHE_FOLDER="$srcdir/.yarn-cache"
@@ -64,5 +58,11 @@ package_theia-blueprint-for-browser() {
 }
 
 package_theia-blueprint-for-browser-extra() {
+     # Optional helpful files
+     arch=('any')
+     pkgdesc=('Additional useful files for Cloud IDE Platform blueprint')
+     depends_=("${pkgbase}")
+     optdepends=('systemd: For systemd unit file')
+
     install -Dm 644 "${pkgbase}@.service" "${pkgdir}/usr/lib/systemd/user/${pkgbase}@.service"
 }
