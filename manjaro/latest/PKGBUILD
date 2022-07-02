@@ -1,6 +1,7 @@
 # Maintainer: Alex Talker <alextalker at ya.ru>
-
-pkgname=theia-blueprint-for-browser
+pkgbase='theia-blueprint-for-browser'
+pkgname=('theia-blueprint-for-browser'
+         'theia-blueprint-for-browser-extra')
 pkgver=1.25.0
 pkgrel=1
 arch=('any')
@@ -14,10 +15,12 @@ options=(!strip) #to speed up build
 
 source=(
     "theia-blueprint-for-browser.sh"
+    "theia-blueprint-for-browser.service"
     "package.json"
     "https://raw.githubusercontent.com/eclipse-theia/theia/v$pkgver/LICENSE"
 )
 md5sums=('SKIP'
+         'SKIP'
          'SKIP'
          '84e52389f141be88a24bcfdd44c91a19')
 
@@ -34,22 +37,26 @@ build() {
     unset YARN_CACHE_FOLDER
 }
 
-package() {
+package_theia-blueprint-for-browser() {
     # Create directory
-    install -dm 755 "$pkgdir"/opt/$pkgname
+    install -dm 755 "${pkgdir}/opt/${pkgbase}"
 
     # Source code (symlinks are not dereferenced) and plugins
     cp -r --no-preserve=ownership --preserve=mode \
         src-gen lib node_modules \
         plugins \
-        "$pkgdir/opt/$pkgname/"
+        "${pkgdir}/opt/${pkgbase}/"
 
     # package.json
-    install -Dm755 package.json "$pkgdir/opt/$pkgname/"
+    install -Dm755 package.json "${pkgdir}/opt/${pkgbase}/"
 
     # Executable
-    install -Dm755 theia-blueprint-for-browser.sh "$pkgdir/usr/bin/$pkgname"
+    install -Dm755 "${pkgbase}.sh "${pkgdir}/usr/bin/${pkgbase}"
 
     # License
-    install -Dm 644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+    install -Dm 644 LICENSE "${pkgdir}"/usr/share/licenses/${pkgbase}/LICENSE
+}
+
+package_theia-blueprint-for-browser-extra() {
+    install -Dm 644 "${pkgbase}.service" "${pkgdir}/usr/lib/systemd/user/${pkgbase}.service"
 }
