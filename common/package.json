@@ -14,7 +14,7 @@
         "@theia/bulk-edit": "latest"
         "@theia/callhierarchy": "latest",
         "@theia/console": "latest",
-        "@theia/core": "latest"
+        "@theia/core": "latest",
         "@theia/debug": "latest",
         "@theia/editor": "latest",
         "@theia/editor-preview": "latest",
@@ -49,7 +49,7 @@
         "@theia/userstorage": "latest",
         "@theia/variable-resolver": "latest",
         "@theia/vsx-registry": "latest",
-        "@theia/workspace": "latest",
+        "@theia/workspace": "latest"
     },
     "devDependencies": {
         "@theia/cli": "latest"
